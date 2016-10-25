@@ -49,7 +49,7 @@ describe('Users factory', function () {
     });
 
     it('should return a hardcoded list of users', function () {
-        expect(Users.all()).toEqual(userList)
+        expect(Users.all()).toBe(userList)
     });
 
 
