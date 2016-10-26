@@ -34,12 +34,27 @@
                 }
             ];
 
+            this.findUserById = function findUserById(id) {
+                return userList.find((user) => { 
+                    return user.id === id
+                });
+            }
+
+            function createUserIdMatcher(value) {
+                return function (user) {
+                    let id = value;
+
+                    return id === user.id;
+                }
+            }
+
             this.all = function () {
                 return userList;
             };
 
             return {
-                all: this.all
+                all: this.all,
+                findUserById: this.findUserById
             };
         });
 })();

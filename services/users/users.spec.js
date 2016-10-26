@@ -32,6 +32,15 @@ describe('Users factory', function () {
         }
     ];
 
+    const jane =  {
+            id: '1',
+            name: 'Jane',
+            role: 'Designer',
+            location: 'New York',
+            twitter: 'gijane'
+        };
+
+    //Jasmine runs this before each test
     beforeEach(angular.mock.module('api.users'));
 
     beforeEach(inject(function (_Users_) {
@@ -49,7 +58,18 @@ describe('Users factory', function () {
     });
 
     it('should return a hardcoded list of users', function () {
-        expect(Users.all()).toBe(userList)
+        expect(Users.all()).toEqual(userList)
+    });
+
+    describe('.findUserById()', function () {
+        it("should exist", function() {
+            expect(Users.findUserById).toBeDefined();
+        });
+
+        it('should given the id return the user for that id', function() {
+            expect(Users.findUserById('1')).toEqual(jane)
+        })
+
     });
 
 
