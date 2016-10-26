@@ -68,7 +68,11 @@ describe('Users factory', function () {
 
         it('should given the id return the user for that id', function() {
             expect(Users.findUserById('1')).toEqual(jane)
-        })
+        });
+
+        it('should return underfined if the user cannot be found', function() {
+            expect(Users.findUserById('ABC')).not.toBeDefined();
+        });
 
     });
 

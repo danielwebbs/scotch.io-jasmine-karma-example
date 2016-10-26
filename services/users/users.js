@@ -43,7 +43,6 @@
             function createUserIdMatcher(value) {
                 return function (user) {
                     let id = value;
-
                     return id === user.id;
                 }
             }
